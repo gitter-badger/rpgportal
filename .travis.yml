@@ -6,9 +6,11 @@ before_install:
 install: echo Set...
 before_script: echo Go!
 script: ./gradlew build
+before_deploy:
+  - export JAR_NAME=$(ls rpgportal.app/build/libs/rpgportal.app-*.jar)
 deploy:
   provider: boxfuse
-  payload: rpgportal.app/build/libs/rpgportal.app-*.jar
+  payload: $JAR_NAME
 after_deploy: echo Deployed!
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
