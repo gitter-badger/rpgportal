@@ -13,7 +13,7 @@ deploy:
   payload: $JAR_NAME
   app: 'rpgportal'
   debug: true
-  logsTail: true
+  logs.tail: true
 after_deploy: echo Deployed!
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
