@@ -1,0 +1,37 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenLocal()
+		mavenCentral()
+		maven { url 'http://files.boxfuse.com' }
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("com.boxfuse.client:boxfuse-gradle-plugin:1.18.7.938")
+	}
+}
+
+apply plugin: 'spring-boot'
+apply plugin: 'boxfuse'
+
+boxfuse {
+	app='rpgportal'
+	user='2080a260506c448cab6f2066555c09a3'
+	secret='Jzt5oLkJjYbafTwjrOT93UPBTIul6vEtPUYwk1suxE2s9uXI9HTCtR27ZIp0L9N5'
+	payload="${buildDir}/libs/rpgportal.app-${project.version}.jar"
+	envvars=[
+		'SPRING_PROFILES_ACTIVE':'$BOXFUSE_ENV'
+	]
+	debug=true
+	logsTail=true
+}
+
+dependencies {
+	compile project(':rpgportal.core')
+	compile project(':rpgportal.sql')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile 'org.flywaydb:flyway-core:4.0'
+	runtime('org.postgresql:postgresql')
+}

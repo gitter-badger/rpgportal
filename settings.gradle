@@ -1,0 +1,6 @@
+rootProject.name = 'rpgportal-server'
+include 'rpgportal.common'
+include 'rpgportal.core'
+include 'rpgportal.sql'
+include 'rpgportal.app'
+

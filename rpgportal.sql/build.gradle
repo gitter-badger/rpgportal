@@ -1,0 +1,17 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        //classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//apply plugin: 'spring-boot'
+
+dependencies {
+    compile project(':rpgportal.common')
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
