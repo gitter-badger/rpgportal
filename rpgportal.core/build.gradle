@@ -4,12 +4,7 @@ buildscript {
         mavenLocal()
         mavenCentral()
     }
-
-    dependencies {
-        //classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
 }
-//apply plugin: 'spring-boot'
 
 dependencies {
     compile project(':rpgportal.common')
