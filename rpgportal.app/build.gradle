@@ -17,8 +17,6 @@ apply plugin: 'boxfuse'
 
 boxfuse {
 	app='rpgportal'
-	user='2080a260506c448cab6f2066555c09a3'
-	secret='Jzt5oLkJjYbafTwjrOT93UPBTIul6vEtPUYwk1suxE2s9uXI9HTCtR27ZIp0L9N5'
 	payload="${buildDir}/libs/rpgportal.app-${project.version}.jar"
 	envvars=[
 		'SPRING_PROFILES_ACTIVE':'$BOXFUSE_ENV'

@@ -11,10 +11,13 @@ before_deploy:
 deploy:
   provider: boxfuse
   payload: $JAR_NAME
+  app: 'rpgportal'
+  debug: true
+  logsTail: true
 after_deploy: echo Deployed!
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
