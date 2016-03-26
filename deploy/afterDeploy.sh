@@ -1,5 +1,6 @@
 #!/bin/bash
 cd boxfuse
+ls -la
 logfile='*.logs'
 logs=$(cat $logfile)
 deployed=false

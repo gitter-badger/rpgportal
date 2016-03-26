@@ -16,11 +16,11 @@ import java.util.List;
 /**
  * @author Виктор
  */
-@SuppressWarnings("deprecation")
 public class SchemaGenerator {
 
     private String outputDir = "src/main/resources/ddl";
     private String outputFile = "schema.ddl";
+    @SuppressWarnings("deprecation")
     private NamingStrategy namingStrategy = ImprovedNamingStrategy.INSTANCE;
 
     private File configFile;
