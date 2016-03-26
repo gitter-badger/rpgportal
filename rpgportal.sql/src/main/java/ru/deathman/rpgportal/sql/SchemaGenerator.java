@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * @author Виктор
  */
+@SuppressWarnings("deprecation")
 public class SchemaGenerator {
 
     private String outputDir = "src/main/resources/ddl";

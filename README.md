@@ -1,4 +1,4 @@
-# RPG Portal
+# RPG Portal [![Build Status](https://travis-ci.org/deathman92/rpgportal.svg?branch=master)](https://travis-ci.org/deathman92/rpgportal)
 The Portal for online forum role-playing games with social parts.
 
 # License
