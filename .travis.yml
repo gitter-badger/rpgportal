@@ -11,8 +11,11 @@ before_deploy:
 deploy:
   provider: boxfuse
   payload: $JAR_NAME
+  image: rpgportal:$TRAVIS_BUILD_NUMBER
   extra_args: "-app=rpgportal -debug=true -logs.tail=true"
-after_deploy: echo Deployed!
+after_deploy:
+  - boxfuse/boxfuse rm hello:($TRAVIS_BUILD_NUMBER-1) -vault
+  - echo Deployed!
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
