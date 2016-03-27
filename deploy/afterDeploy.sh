@@ -1,6 +1,7 @@
 #!/bin/bash
-cd boxfuse
-r=`wget -q http://rpgportal-test-deathman92.boxfuse.io/health`
+url=http://rpgportal-test-deathman92.boxfuse.io/health
+echo Check deploy by url $url
+r=`wget -q $url`
 if [ $? != 0 ]
 then
     deployed=false
@@ -9,8 +10,10 @@ else
 fi
 if [ $deployed == false ]
 then
+    echo Not deployed. Exit
     exit 1
 fi
 prevNum=`expr $TRAVIS_BUILD_NUMBER - 1`
-boxfuse rm rpgportal:$prevNum -vault
+echo Deployed. Removing prevoius image num.$prevNum
+boxfuse/boxfuse rm rpgportal:$prevNum -vault
 echo Deployed!
