@@ -1,18 +1,15 @@
 language: java
 jdk: oraclejdk8
-before_install:
-  - chmod +x gradlew
-  - echo Ready...
-install: echo Set...
-before_script: echo Go!
-script: ./gradlew build
+before_install: chmod +x gradlew
+install: ./gradlew assemble
+script: ./gradlew check
 before_deploy:
   - export JAR_NAME=$(ls rpgportal.app/build/libs/rpgportal.app-*.jar)
 deploy:
   provider: boxfuse
   payload: $JAR_NAME
   image: rpgportal:$TRAVIS_BUILD_NUMBER
-  extra_args: "-app=rpgportal -debug=true -ports.http=80 -healthcheck.timeout=60 -logs=true -logs.auto=true -logs.dir=boxfuse -logs.tail=true -envvars.SPRING_PROFILES_ACTIVE=$BOXFUSE_ENV"
+  extra_args: "-app=rpgportal -debug=true -ports.http=80 -healthcheck.timeout=60 -logs=true -logs.auto=true -logs.dir=boxfuse -logs.tail=true -envvars.SPRING_PROFILES_ACTIVE=test"
 after_deploy:
   - chmod +x deploy/afterDeploy.sh
   - ./deploy/afterDeploy.sh || travis_terminate 1;
