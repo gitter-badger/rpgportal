@@ -2,8 +2,8 @@
 chmod +x deploy/removeImage.sh
 echo Check deployed...
 deployed=true
-./deploy/removeImage.sh rpgportal $TRAVIS_BUILD_NUMBER && deployed=false
-if [ $deployed ]
+./deploy/removeImage.sh rpgportal $TRAVIS_BUILD_NUMBER && deployed=false || deployed=true
+if [[ $deployed == true ]]
 then
     echo Not deployed! Removing current image...
     ./deploy/removeImage.sh rpgportal $TRAVIS_BUILD_NUMBER -v && echo Successfully removed rpgportal:$TRAVIS_BUILD_NUMBER.
