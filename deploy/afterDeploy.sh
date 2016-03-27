@@ -11,9 +11,9 @@ fi
 if [ $deployed == false ]
 then
     echo Not deployed. Exit
-    exit 1
+    travis_terminate 1
 fi
 prevNum=`expr $TRAVIS_BUILD_NUMBER - 1`
 echo Deployed. Removing prevoius image num.$prevNum
-boxfuse/boxfuse rm rpgportal:$prevNum -vault
-echo Deployed!
+boxfuse/boxfuse rm rpgportal:$prevNum -vault && echo Deployed!
+echo Cannot remove previous image!
