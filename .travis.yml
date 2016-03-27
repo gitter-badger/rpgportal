@@ -12,7 +12,7 @@ deploy:
   provider: boxfuse
   payload: $JAR_NAME
   image: rpgportal:$TRAVIS_BUILD_NUMBER
-  extra_args: "-app=rpgportal -debug=true -ports.http=80 -logs=true -logs.auto=true -logs.dir=boxfuse -logs.tail=true -envvars.SPRING_PROFILES_ACTIVE=$BOXFUSE_ENV"
+  extra_args: "-app=rpgportal -debug=true -ports.http=80 -healthcheck.timeout=60 -logs=true -logs.auto=true -logs.dir=boxfuse -logs.tail=true -envvars.SPRING_PROFILES_ACTIVE=$BOXFUSE_ENV"
 after_deploy:
   - chmod +x deploy/afterDeploy.sh
   - ./deploy/afterDeploy.sh
