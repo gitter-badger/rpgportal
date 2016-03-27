@@ -1,20 +1,16 @@
 #!/bin/bash
 cd boxfuse
-ls -la
-logfile='*.logs'
-logs=$(cat $logfile)
-deployed=false
-echo Parse logs
-for log in $logs ; do
-    if [[ $log == *"Deployment completed successfully"* ]]
-    then
-        deployed=true
-    fi
-done
-if [[ $deployed == false ]]
+r=`wget -q http://rpgportal-test-deathman92.boxfuse.io/health`
+if [ $? != 0 ]
+then
+    deployed=false
+else
+    deployed=true
+fi
+if [ $deployed == false ]
 then
     exit 1
 fi
-prevNum = $TRAVIS_BUILD_NUMBER - 1
+prevNum=`expr $TRAVIS_BUILD_NUMBER - 1`
 boxfuse rm rpgportal:$prevNum -vault
 echo Deployed!
