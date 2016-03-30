@@ -11,7 +11,6 @@ buildscript {
 
     dependencies {
         classpath('io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE')
-        //classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
