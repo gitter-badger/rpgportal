@@ -1,5 +1,6 @@
 .gradle
 .idea
+boxfuse
 rpgportal-server.iml
 rpgportal.app/build
 rpgportal.app/rpgportal.app.iml
