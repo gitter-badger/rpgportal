@@ -1,12 +1,5 @@
 .gradle
 .idea
 boxfuse
-rpgportal-server.iml
-rpgportal.app/build
-rpgportal.app/rpgportal.app.iml
-rpgportal.common/build
-rpgportal.common/rpgportal.common.iml
-rpgportal.core/build
-rpgportal.core/rpgportal.core.iml
-rpgportal.sql/build
-rpgportal.sql/rpgportal.sql.iml
+*/build
+*.iml
