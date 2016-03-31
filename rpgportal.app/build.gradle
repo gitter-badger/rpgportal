@@ -21,7 +21,7 @@ boxfuse {
 	envvars=[
 		'SPRING_PROFILES_ACTIVE':'$BOXFUSE_ENV'
 	]
-	image=rpgportal
+	image='rpgportal'
 	debug=true
 	logsTail=true
 }
