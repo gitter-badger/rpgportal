@@ -9,7 +9,10 @@ deploy:
   provider: boxfuse
   payload: $JAR_NAME
   image: rpgportal:$TRAVIS_BUILD_NUMBER
+  env: prod
   extra_args: "-app=rpgportal -debug=true -ports.http=80 -ports.debug=5005 -healthcheck.timeout=120 -logs=true -logs.auto=true -logs.dir=boxfuse -logs.tail=true -envvars.SPRING_PROFILES_ACTIVE=test"
+  on:
+    branch: develop
 after_deploy:
   - chmod +x deploy/afterDeploy.sh
   - ./deploy/afterDeploy.sh || travis_terminate 1;
@@ -19,7 +22,3 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-notifications:
-  webhooks:
-    urls:
-      - https://hooks.glip.com/webhook/0907b545-2cfc-4476-bcd3-3a5ff1001e57
